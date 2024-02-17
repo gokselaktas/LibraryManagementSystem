@@ -12,7 +12,39 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 
+class FileManager:
+    def __init__(self, filename='books.txt'):
+        self.filename = filename
+
+    def append_to_file(self, content):
+        with open(self.filename, 'a+') as file:
+            file.write(content)
+
+    def read_file(self):
+        with open(self.filename, 'r') as file:
+            return file.readlines()
+        
+    def delete_book(self, title_to_remove):
+        # Dosyayı okuma modunda açıp içeriğini okuyoruz.
+        with open(self.filename, 'r') as file:
+            lines = file.read().splitlines()
+
+        # Başlığı verilen kitabı çıkartıyoruz.
+        lines = [line for line in lines if not line.startswith(title_to_remove)]
+
+        # Dosyayı yazma modunda açıp güncellenmiş içeriği yazıyoruz.
+        with open(self.filename, 'w') as file:
+            for line in lines:
+                file.write(f"{line}\n")
+
+
+
+
 class Ui_MainWindow(object):
+    FileManager = FileManager()
+    #FileManager.append_to_file("GlobalAI, Python, 2021, 300")
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(641, 687)
@@ -69,6 +101,7 @@ class Ui_MainWindow(object):
         self.ui = Ui_Form()
         self.ui.setupUi(self.window)
         self.window.show()
+        print("")
 
     def DelWindow(self): # kitap silmek için çıkacak ekran	
         from DelWindow import Ui_Form

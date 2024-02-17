@@ -9,9 +9,13 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from MainWindow import FileManager
+
 
 
 class Ui_Form(object):
+    FileManager = FileManager()
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(339, 119)
@@ -24,10 +28,11 @@ class Ui_Form(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(100, 30, 221, 31))
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
+        self.DelEdit = QtWidgets.QLineEdit(Form)
+        self.DelEdit.setGeometry(QtCore.QRect(100, 30, 221, 31))
+        self.DelEdit.setText("")
+        self.DelEdit.setObjectName("DelEdit")
+
         self.pushButton = QtWidgets.QPushButton(Form)
         self.pushButton.setGeometry(QtCore.QRect(230, 70, 93, 28))
         self.pushButton.setObjectName("pushButton")
@@ -35,9 +40,11 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-        self.pushButton.clicked.connect(lambda:self.closeScreen(Form))# delete butonuna tıklanınca 
+        self.pushButton.clicked.connect(lambda:self.DelButtonFunction(Form))# delete butonuna tıklanınca 
 
-    def closeScreen(self,Form):# delete butonuna tıklanınca sayfayı saklar.
+    def DelButtonFunction(self,Form):# delete butonuna tıklanınca sayfayı saklar.
+        self.FileManager = FileManager()
+        self.FileManager.delete_book(self.DelEdit.text())
         Form.hide()
 
     def retranslateUi(self, Form):
