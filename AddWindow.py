@@ -1,11 +1,10 @@
 # Bu dosya, kitap ekleme penceresi icin tasarlanmis olan arayuz kodlarini icerir.
 import os
-from MainWindow import FileManager # Dosya islemleri icin FileManager sinifini import ettik.
+from FileManager import FileManager # Dosya islemleri icin FileManager sinifini import ettik.
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
-    FileManager = FileManager() # Dosya islemleri icin FileManager nesnesi olusturuldu.
-
+    FileManager = FileManager() # Dosya islemi yapacagimiz icin FileManager nesnesi olusturuldu.
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(415, 247)
@@ -55,10 +54,11 @@ class Ui_Form(object):
         self.AddButton = QtWidgets.QPushButton(Form)
         self.AddButton.setGeometry(QtCore.QRect(290, 200, 93, 28))
         self.AddButton.setFont(font)
-        self.AddButton.setText("Add") # Ekleme butonu eklendi
+        self.AddButton.setText("Add") # Add butonu etiketi eklendi
 
-        self.AddButton.clicked.connect(lambda:self.AddButtonFunction(Form))
+        self.AddButton.clicked.connect(lambda:self.AddButtonFunction(Form)) # Ekleme butonuna tıklanınca Ekleme fonksiyonu cagiriliyor.
 
     def AddButtonFunction(self,Form): # Eklemeler burada gerceklesiyor
         self.FileManager.append_to_file( f"{self.TitleEdit.text()},{self.AuthorEdit.text()},{self.YearEdit.text()},{self.PageEdit.text()}\n") # Dosya islemi icin append_to_file fonksiyonu cagirdik.
         Form.hide()
+
