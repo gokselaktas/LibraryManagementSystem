@@ -3,38 +3,10 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QListView
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-
-
-class FileManager: # Dosya islemleri icin FileManager sinifi olusturuldu
-    def __init__(self, filename='books.txt'): # Dosya adı belirtilmezse varsayılan olarak books.txt dosyası oluşturacak
-        self.filename = filename
-
-    def append_to_file(self, content): # Dosyaya kitap ekleyen fonksiyon
-        with open(self.filename, 'a+') as file:
-            file.write(content)
-
-    def read_books_from_file(self): # Dosyadan kitapları okuyan fonksiyon
-        with open(self.filename, 'r') as file:
-            lines = file.read().splitlines()
-        return lines
-        
-    def delete_book(self, title_to_remove):
-        # Dosyayı okuma modunda açıp içeriğini okuyoruz.
-        with open(self.filename, 'r') as file:
-            lines = file.read().splitlines()
-
-        # Başlığı verilen kitabı çıkartıyoruz.
-        lines = [line for line in lines if not line.startswith(title_to_remove)]
-
-        # Dosyayı yazma modunda açıp güncellenmiş içeriği yazıyoruz.
-        with open(self.filename, 'w') as file:
-            for line in lines:
-                file.write(f"{line}\n")
-
+from FileManager import FileManager # Dosya islemleri icin FileManager sinifini import ettik.
 
 class Ui_MainWindow(object):
-    FileManager = FileManager()
-
+    FileManager = FileManager() # Dosya islemi yapacagimiz icin FileManager nesnesi olusturuldu.
     def setupUi(self, MainWindow):
         MainWindow.resize(641, 687)
         MainWindow.setWindowTitle("Library Management System") # Pencere basligi
@@ -87,15 +59,12 @@ class Ui_MainWindow(object):
 
     def load_books_into_listview(self):
         books = self.FileManager.read_books_from_file()  # Dosyadan kitapları okuyan fonksiyon
-        
         # Model tabanli bir widget kullandigimiz icin bir model olusturuyoruz
         model = QStandardItemModel(self.listView)
-        
         for book in books:
             # Her bir kitap için bir QStandardItem oluşturduk ve modelimize ekledik
             item = QStandardItem(book)
             model.appendRow(item)
-        
         # Modeli ListView'a bağladık
         self.listView.setModel(model)
 
