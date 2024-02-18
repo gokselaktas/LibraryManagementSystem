@@ -1,8 +1,9 @@
 # Bu dosya, kitap silme penceresi icin tasarlanmis olan arayuz kodlarini icerir.
-from MainWindow import FileManager # Dosya islemleri icin FileManager sinifini import ettik.
+from FileManager import FileManager # Dosya islemleri icin FileManager sinifini import ettik.
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
+    FileManager = FileManager() # Dosya islemi yapacagimiz icin FileManager nesnesi olusturuldu.
     def setupUi(self, Form):
         Form.resize(339, 119)
         Form.setWindowTitle("Book Deletion Screen") # Pencere basligi
@@ -28,6 +29,8 @@ class Ui_Form(object):
         self.DelButton.clicked.connect(lambda:self.DelButtonFunction(Form))# delete butonuna tıklanınca silme fonksiyonu cagiriliyor.
 
     def DelButtonFunction(self,Form):# delete butonuna tıklanınca sayfayı saklar.
-        FileManager = FileManager() # Dosya islemi yapacagimiz icin FileManager nesnesi olusturuldu.
         self.FileManager.delete_book(self.DelEdit.text())
         Form.hide()
+
+
+
