@@ -14,34 +14,34 @@ class Ui_MainWindow(object):
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(30, 30, 121, 131))
-        self.pushButton.setIcon(QtGui.QIcon("./icons/globalaihub.jpeg")) # GlobalAIHub logosu eklendi
-        self.pushButton.setIconSize(QtCore.QSize(121, 131)) # icon boyutu ayarlamasi
-        self.pushButton.clicked.connect(lambda: os.system("start https://globalaihub.com/"))# GlobalAIHub logosuna tıklanınca siteye yönlendirme yapiyor.
+        self.GlobalAiButton = QtWidgets.QPushButton(self.centralwidget)
+        self.GlobalAiButton.setGeometry(QtCore.QRect(30, 30, 121, 131)) 
+        self.GlobalAiButton.setIcon(QtGui.QIcon("./icons/globalaihub.jpeg")) # GlobalAIHub logosu eklendi
+        self.GlobalAiButton.setIconSize(QtCore.QSize(121, 131)) # icon boyutu ayarlamasi
+        self.GlobalAiButton.clicked.connect(lambda: os.system("start https://globalaihub.com/"))# GlobalAIHub logosuna tıklanınca siteye yönlendirme yapiyor.
         # sertifika aldigimda oraya yonlendirecegim :)
 
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(30, 180, 121, 131))
-        self.pushButton_2.setIcon(QtGui.QIcon('./icons/list.png')) # Listeleme logosu eklendi
-        self.pushButton_2.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
+        self.ListPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ListPushButton.setGeometry(QtCore.QRect(30, 180, 121, 131))
+        self.ListPushButton.setIcon(QtGui.QIcon('./icons/list.png')) # Listeleme logosu eklendi
+        self.ListPushButton.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
 
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(30, 330, 121, 131))
-        self.pushButton_3.setIcon(QtGui.QIcon('./icons/add.png')) # Ekleme logosu eklendi
-        self.pushButton_3.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
+        self.AddPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.AddPushButton.setGeometry(QtCore.QRect(30, 330, 121, 131))
+        self.AddPushButton.setIcon(QtGui.QIcon('./icons/add.png')) # Ekleme logosu eklendi
+        self.AddPushButton.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
 
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(30, 480, 121, 131))
-        self.pushButton_4.setIcon(QtGui.QIcon('./icons/delete.png')) #Silme logosu eklendi
-        self.pushButton_4.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
+        self.DelPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.DelPushButton.setGeometry(QtCore.QRect(30, 480, 121, 131))
+        self.DelPushButton.setIcon(QtGui.QIcon('./icons/delete.png')) #Silme logosu eklendi
+        self.DelPushButton.setIconSize(QtCore.QSize(121, 131)) #icon boyutu ayarlamasi
 
         self.listView = QtWidgets.QListView(self.centralwidget)
         self.listView.setGeometry(QtCore.QRect(225, 31, 391, 541))
 
-        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(520, 590, 93, 28))
-        self.pushButton_5.setText("Exit") # Exit butonu eklendi
+        self.ExitPushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ExitPushButton.setGeometry(QtCore.QRect(520, 590, 93, 28))
+        self.ExitPushButton.setText("Exit") # Exit butonu eklendi
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -52,10 +52,10 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.pushButton_2.clicked.connect(self.load_books_into_listview)
-        self.pushButton_3.clicked.connect(self.AddWindow) # Ekleme ekrani cagiriliyor
-        self.pushButton_4.clicked.connect(self.DelWindow) # Silme ekrani cagiriliyor
-        self.pushButton_5.clicked.connect(lambda:self.ExitFunction())# exit butonuna tıklanınca
+        self.ListPushButton.clicked.connect(self.load_books_into_listview)
+        self.AddPushButton.clicked.connect(self.AddWindow) # Ekleme ekrani cagiriliyor
+        self.DelPushButton.clicked.connect(self.DelWindow) # Silme ekrani cagiriliyor
+        self.ExitPushButton.clicked.connect(lambda:self.ExitFunction())# exit butonuna tıklanınca
 
     def load_books_into_listview(self):
         books = self.FileManager.read_books_from_file()  # Dosyadan kitapları okuyan fonksiyon
