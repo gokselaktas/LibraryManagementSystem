@@ -9,14 +9,14 @@ class Ui_Form(object):
         Form.setWindowTitle("Book Deletion Screen") # Pencere basligi
         Form.setWindowIcon(QtGui.QIcon('./icons/globalaihub.jpeg')) # GlobalAIHub logosu eklendi
 
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(30, 40, 111, 16))
+        self.TitleLabel = QtWidgets.QLabel(Form)
+        self.TitleLabel.setGeometry(QtCore.QRect(30, 40, 111, 16))
 
         font = QtGui.QFont() # Font ayarlamasi yapildi.
         font.setPointSize(12) 
 
-        self.label.setFont(font)
-        self.label.setText("Title")  #Silme ekranindaki Title yazisi
+        self.TitleLabel.setFont(font)
+        self.TitleLabel.setText("Title")  #Silme ekranindaki Title yazisi
         
         self.DelEdit = QtWidgets.QLineEdit(Form)
         self.DelEdit.setGeometry(QtCore.QRect(100, 30, 221, 31))
@@ -31,6 +31,3 @@ class Ui_Form(object):
     def DelButtonFunction(self,Form):# delete butonuna tıklanınca sayfayı saklar.
         self.FileManager.delete_book(self.DelEdit.text())
         Form.hide()
-
-
-
