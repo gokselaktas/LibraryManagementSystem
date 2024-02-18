@@ -11,29 +11,29 @@ class Ui_Form(object):
 
         Form.setWindowTitle("Book Addition Screen") # Pencere basligi
         Form.setWindowIcon(QtGui.QIcon("./icons/globalaihub.jpeg")) # Pencere iconu eklendi
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(30, 40, 111, 16))
+        self.TitleLabel = QtWidgets.QLabel(Form)
+        self.TitleLabel.setGeometry(QtCore.QRect(30, 40, 111, 16))
 
         font = QtGui.QFont() # Font ayarlamasi yapildi. hepsi icin ayni font kullanildi.
         font.setPointSize(12)
 
-        self.label.setFont(font)
-        self.label.setText("Title") # Kitap ismi icin yazi
+        self.TitleLabel.setFont(font)
+        self.TitleLabel.setText("Title") # Kitap ismi icin yazi
         
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(30, 80, 111, 16))
-        self.label_2.setFont(font)
-        self.label_2.setText("Author") # Yazar ismi icin yazi
+        self.AuthorLabel = QtWidgets.QLabel(Form)
+        self.AuthorLabel.setGeometry(QtCore.QRect(30, 80, 111, 16))
+        self.AuthorLabel.setFont(font)
+        self.AuthorLabel.setText("Author") # Yazar ismi icin yazi
         
-        self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(30, 110, 131, 31))
-        self.label_3.setFont(font)
-        self.label_3.setText("Release year") # Yayin yili icin yazi 
+        self.YearLabel = QtWidgets.QLabel(Form)
+        self.YearLabel.setGeometry(QtCore.QRect(30, 110, 131, 31))
+        self.YearLabel.setFont(font)
+        self.YearLabel.setText("Release year") # Yayin yili icin yazi 
         
-        self.label_4 = QtWidgets.QLabel(Form)
-        self.label_4.setGeometry(QtCore.QRect(30, 150, 131, 31))
-        self.label_4.setFont(font)
-        self.label_4.setText("Page") # Sayfa sayisi icin yazi
+        self.PageLabel = QtWidgets.QLabel(Form)
+        self.PageLabel.setGeometry(QtCore.QRect(30, 150, 131, 31))
+        self.PageLabel.setFont(font)
+        self.PageLabel.setText("Page") # Sayfa sayisi icin yazi
         
         self.TitleEdit = QtWidgets.QLineEdit(Form) # Kitap ismi icin input alanı
         self.TitleEdit.setGeometry(QtCore.QRect(160, 30, 221, 31))
@@ -61,4 +61,3 @@ class Ui_Form(object):
     def AddButtonFunction(self,Form): # Eklemeler burada gerceklesiyor
         self.FileManager.append_to_file( f"{self.TitleEdit.text()},{self.AuthorEdit.text()},{self.YearEdit.text()},{self.PageEdit.text()}\n") # Dosya islemi icin append_to_file fonksiyonu cagirdik.
         Form.hide()
-
