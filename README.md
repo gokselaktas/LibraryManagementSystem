@@ -4,8 +4,20 @@
 
 This repository contains the Library Management System project developed for the Global AI Hub's Python Bootcamp in collaboration with Akbank. The project demonstrates the application of object-oriented programming principles in Python to manage a collection of books.
 
+## Table of contents
+  - [Project Overview](#project-overview)
+  - [User Interaction](#user-interaction)
+  - [Technical Implementation](#technical-implementation)
+  - [Method descriptions](#method-descriptions)
+    - [Adding a Book](#adding-a-book)
+    - [Deleting a Book](#deleting-a-book)
+    - [Listing Books](#listing-books)
+  - [Getting Started](#getting-started)
+    - [To run the Library Management System:](#to-run-the-library-management-system)
+
 ## Project Overview
 ![libsystem](https://github.com/gokselaktas/LibraryManagementSystem/assets/33264492/cd9d3953-a028-4e0b-a024-7517b368c7d9)
+
 
 The Library Management System is designed to interface with a text file books.txt, which acts as a database for storing book details. Each line in this file represents a single book entry with attributes including the book name, author, release date, and the number of pages, all separated by commas.
 
@@ -34,11 +46,11 @@ This intuitive GUI streamlines the process of managing the book database, making
 
 The project is implemented in Python and extends its functionality with a simple GUI design, created using PyQt5 to enhance user experience beyond the terminal-based interaction. This graphical interface provides a more intuitive and user-friendly way to interact with the library system, allowing for operations such as listing, adding, and removing books through a visual medium. The backend of the system showcases proficient use of file handling, string manipulation, and control structures such as if-elif-else statements for executing commands via both the terminal menu and the GUI. The code is structured to be clean and readable, with a modular design that supports easy maintenance and future enhancements.
 
-## Function descriptions
+## Method descriptions
 
 The project contains four different classes. The first, `MainWindow.py`, is the file we need to open to start the program. When the `Add` button is clicked, it invokes the class found in `AddWindow.py` and presents us with the Add Book interface. When the `List` button is clicked, it invokes the class found in `MainWindow.py` and displays all the current entries from the `books.txt` database. Similarly, clicking the `Delete` button will invoke `DelWindow.py`, which makes it easy to remove a book entry. In addition, the `FileManager.py` class is designed to handle file operations such as reading, writing and deleting. This class is integral to the functionality of the other three classes, ensuring smooth file management throughout the system. 
 
-- Adding a Book
+### Adding a Book
   
 ```python
     FileManager = FileManager() # FileManager object created for file operations
@@ -57,7 +69,7 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
             file.write(content)
 ```
 
-- Deleting a Book
+### Deleting a Book
 
 ```python
     FileManager = FileManager() # FileManager object created for file operations
@@ -85,7 +97,7 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
                 file.write(f"{line}\n")
 ```
 
-- Listing Books
+### Listing Books
   
 ```python
     FileManager = FileManager() # FileManager object created for file operation
