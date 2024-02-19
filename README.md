@@ -1,5 +1,6 @@
 
-# Library Management System - Akbank Python Bootcamp Project
+# Akbank Python Bootcamp Project
+## Library Management System
 
 This repository contains the Library Management System project developed for the Global AI Hub's Python Bootcamp in collaboration with Akbank. The project demonstrates the application of object-oriented programming principles in Python to manage a collection of books.
 
