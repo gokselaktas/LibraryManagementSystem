@@ -40,46 +40,36 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
 - Adding a Book
   
 ```python
-    #-------------------------------------------------------------------
-    #AddWindow.py
     FileManager = FileManager() # FileManager object created for file operations
-
-    #-------------------------------------------------------------------
-    #AddWindow.py
-    
+```
+```python
     self.AddButton.clicked.connect(lambda:self.AddButtonFunction(Form)) # when the AddButton clicked
-
-    #-------------------------------------------------------------------
+```
+```python
     def AddButtonFunction(self,Form):
         self.FileManager.append_to_file( f"{self.TitleEdit.text()},{self.AuthorEdit.text()},{self.YearEdit.text()},{self.PageEdit.text()}\n") # calling the append_to_file method
         Form.hide()
-    #-------------------------------------------------------------------
+```
+```python
     def append_to_file(self, content): # Function that adds a book to 'Books.txt'
         with open(self.filename, 'a+') as file:
             file.write(content)
 ```
 
 - Deleting a Book
-  
+
 ```python
-    #-------------------------------------------------------------------
-    #DelWindow.py
     FileManager = FileManager() # FileManager object created for file operations
-
-    #-------------------------------------------------------------------
-    #DelWindow.py
+```
+```python
     self.DelButton.clicked.connect(lambda:self.DelButtonFunction(Form)) # when the DelButton clicked
-
-    #-------------------------------------------------------------------
-    #DelWindow.py
-
+```
+```python
     def DelButtonFunction(self,Form):
         self.FileManager.delete_book(self.DelEdit.text()) # calling the delete_book method
         Form.hide() #hides the page when the DelButton is clicked.
-
-    #-------------------------------------------------------------------
-    #FileManager.py
-
+```
+```python
     def delete_book(self, title_to_remove):
         # Open the file in read mode and reading the books
         with open(self.filename, 'r') as file:
@@ -97,15 +87,13 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
 - Listing Books
   
 ```python
-    #MainWindow.py
     FileManager = FileManager() # FileManager object created for file operation
-
-    #-------------------------------------------------------------------
-    #MainWindow.py
+```
+```python
     self.ListPushButton.clicked.connect(self.load_books_into_listview)
+```
 
-    #-------------------------------------------------------------------
-    #MainWindow.py
+```python
 
     def load_books_into_listview(self):
         books = self.FileManager.read_books_from_file()
@@ -117,9 +105,8 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
             model.appendRow(item)
         
         self.listView.setModel(model) # Connecting the model to the ListView
-
-    #-------------------------------------------------------------------
-    #FileManager.py
+```
+```python
 
     def read_books_from_file(self): # Function that reads books from file
         with open(self.filename, 'r') as file:
