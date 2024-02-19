@@ -138,7 +138,7 @@ The project contains four different classes. The first, `MainWindow.py`, is the 
 
    ``` git clone https://github.com/gokselaktas/LibraryManagementSystem.git ```
 
-2. Eensure that `Python` and `PyQt5` are installed.
+2. Ensure that `Python` and `PyQt5` are installed.
    - [Python](https://www.python.org/downloads/) | 
    ``` pip install PyQt5 ```
    
