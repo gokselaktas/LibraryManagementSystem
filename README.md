@@ -14,7 +14,7 @@ Initialization and Termination: The constructor initializes the system by openin
 
  - Listing Books: A method to read and display all book entries from the books.txt file.
 
- - Adding a Book: A method to add a new book entry to the file,    capturing user input for the book's details.
+ - Adding a Book: A method to add a new book entry to the file, capturing user input for the book's details.
 
  - Removing a Book: A method to delete a book entry from the file based on a given title.
 
@@ -33,23 +33,12 @@ This intuitive GUI streamlines the process of managing the book database, making
 
 The project is implemented in Python and extends its functionality with a simple GUI design, created using PyQt5 to enhance user experience beyond the terminal-based interaction. This graphical interface provides a more intuitive and user-friendly way to interact with the library system, allowing for operations such as listing, adding, and removing books through a visual medium. The backend of the system showcases proficient use of file handling, string manipulation, and control structures such as if-elif-else statements for executing commands via both the terminal menu and the GUI. The code is structured to be clean and readable, with a modular design that supports easy maintenance and future enhancements.
 
-
-
-## Getting Started
-
-### To run the Library Management System:
-
-Clone this repository to your local machine.
-
-To start the program, first ensure that `Python` and `PyQt5` are installed on your computer.
-
-Run the `MainWindow.py` script. 
-
-
 ## Function descriptions
 
-The project includes four distinct classes. The first, `Mainwindow.py`, is the file we need to open to start the program. When the `Add` button is clicked, it invokes the class found in `AddWindow.py`, which brings up the corresponding screen. Similarly, clicking the `Delete` button brings up `DelWindow.py`. In addition to these, there is a class in `FileManager.py` that is designed for file operations such as reading, writing, and deleting, and this class is utilized across the other three windows.
+The project contains four different classes. The first, `MainWindow.py`, is the file we need to open to start the program. When the `Add` button is clicked, it invokes the class found in `AddWindow.py` and presents us with the Add Book interface. When the `List` button is clicked, it invokes the class found in `MainWindow.py` and displays all the current entries from the `books.txt` database. Similarly, clicking the `Delete` button will invoke `DelWindow.py`, which makes it easy to remove a book entry. In addition, the `FileManager.py` class is designed to handle file operations such as reading, writing and deleting. This class is integral to the functionality of the other three classes, ensuring smooth file management throughout the system. 
+
 - Adding a Book
+  
 ```python
     #-------------------------------------------------------------------
     #AddWindow.py
@@ -71,6 +60,7 @@ The project includes four distinct classes. The first, `Mainwindow.py`, is the f
 ```
 
 - Deleting a Book
+  
 ```python
     #-------------------------------------------------------------------
     #DelWindow.py
@@ -105,6 +95,7 @@ The project includes four distinct classes. The first, `Mainwindow.py`, is the f
 ```
 
 - Listing Books
+  
 ```python
     #MainWindow.py
     FileManager = FileManager() # FileManager object created for file operation
@@ -136,3 +127,22 @@ The project includes four distinct classes. The first, `Mainwindow.py`, is the f
         return lines
 
 ```
+
+
+
+## Getting Started
+
+### To run the Library Management System:
+
+1. Clone this repository to your local machine.
+
+   ``` git clone https://github.com/gokselaktas/LibraryManagementSystem.git ```
+
+2. Eensure that `Python` and `PyQt5` are installed.
+   - [Python](https://www.python.org/downloads/) | 
+   ``` pip install PyQt5 ```
+   
+
+3. Run the following code in a terminal in the directory in which the files are located
+
+    ``` Python MainWindow.py ```
