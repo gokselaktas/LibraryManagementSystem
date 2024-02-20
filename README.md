@@ -19,6 +19,7 @@ This repository contains the Library Management System project developed for the
 <div align="center" style="text-align: center" >
 <img src="https://github.com/gokselaktas/LibraryManagementSystem/assets/33264492/cd9d3953-a028-4e0b-a024-7517b368c7d9">
 </div>
+<br>
 
 
 The Library Management System is designed to interface with a text file books.txt, which acts as a database for storing book details. Each line in this file represents a single book entry with attributes including the book name, author, release date, and the number of pages, all separated by commas.
