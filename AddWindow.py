@@ -58,6 +58,6 @@ class Ui_Form(object):
 
         self.AddButton.clicked.connect(lambda:self.AddButtonFunction(Form)) # Ekleme butonuna tıklanınca Ekleme fonksiyonu cagiriliyor.
 
-    def AddButtonFunction(self,Form): # Eklemeler burada gerceklesiyor
+    def AddButtonFunction(self,Form): # Eklemeler
         self.FileManager.append_to_file( f"{self.TitleEdit.text()},{self.AuthorEdit.text()},{self.YearEdit.text()},{self.PageEdit.text()}\n") # Dosya islemi icin append_to_file fonksiyonu cagirdik.
         Form.hide()
